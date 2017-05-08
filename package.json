@@ -1,7 +1,7 @@
 {
   "name": "loftschool-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "* `npm install` - установить зависимости\r * `npm run start` - запустить встроенный сервер и следить за изменениями файлов\r * `npm run build` - собрать проект в папку `build`\r * `npm run test` - запустить тесты\r * `npm run codestyle` - проверить стиль кода",
   "main": "index.js",
   "scripts": {
     "codestyle": "eslint src test",
@@ -30,6 +30,10 @@
     "webpack": "^2.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
     "chai": "^3.5.0",
     "eslint": "^3.13.1",
     "istanbul": "^0.4.5",
@@ -45,5 +49,17 @@
     "karma-webpack": "^2.0.1",
     "mocha": "^3.2.0",
     "webpack-dev-server": "^1.16.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smelukov/loftschool-example.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/smelukov/loftschool-example/issues"
+  },
+  "homepage": "https://github.com/smelukov/loftschool-example#readme"
 }
