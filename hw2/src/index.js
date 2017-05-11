@@ -106,8 +106,8 @@ function calculator(number = 0) {
 
     return {
 
-        sum: (...args) => {
-            return args.reduce((sum, arrElem) =>
+        sum: (...arr) => {
+            return arr.reduce((sum, arrElem) =>
                 sum += arrElem, number)
         },
         dif: (...arr) => {
