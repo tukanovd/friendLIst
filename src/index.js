@@ -7,13 +7,11 @@
  * @return {Element}
  */
 function createDivWithText(text) {
-    return (() => {
-        let el = document.createElement('DIV');
+    let el = document.createElement('DIV');
 
-        el.textContent = text;
+    el.textContent = text;
 
-        return el;
-    })()
+    return el;
 }
 
 /**
@@ -23,13 +21,11 @@ function createDivWithText(text) {
  * @return {Element}
  */
 function createAWithHref(hrefValue) {
-    return (() => {
-        let el = document.createElement('A');
+    let el = document.createElement('A');
 
-        el.href = hrefValue;
+    el.href = hrefValue;
 
-        return el;
-    })()
+    return el;
 }
 
 /**
