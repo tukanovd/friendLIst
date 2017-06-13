@@ -1,9 +1,7 @@
-// import {inputKeyUpEvent} from './sortFriendListsEvent';
-// import {dragStart, dragOver, dragEnter, dragDrop} from './dndEvent';
-// import {saveFriends} from './loadApp';
-
-// var i = require('sortFriendListsEvent');
-// var inputKeyUpEvent = i.inputKeyUpEvent;
+/*  обработчик заполнения списков друзей
+    сначала проверяем есть ли списки в localstorage
+    и если нет, то подгружаем из vk.com
+ * */
 function vkApi(method, options) {
     if (!options.v) {
         options.v = '5.64';
@@ -70,7 +68,7 @@ function checkLocalStorage() {
 new Promise(resolve => window.onload = resolve)
     .then(() => checkLocalStorage())
     .then(() => vkInit())
-    .then(() => vkApi('friends.get', {fields: 'photo_200'}))
+    .then(() => vkApi('friends.get', { fields: 'photo_200' }))
     .then((response) => {
         response
             .items

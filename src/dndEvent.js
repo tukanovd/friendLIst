@@ -1,4 +1,8 @@
-
+/*  обработка событий переноса "друга"
+    в другой список, setEvent используется
+    как для кнопки,
+    так и для drag and drop события
+* */
 function setEvent(friend) {
     let draggableSpan = friend.querySelector('span');
 

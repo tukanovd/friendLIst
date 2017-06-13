@@ -1,4 +1,6 @@
-
+/*  обработчик сохранения списков в localstorage,
+    для этого описываем объект 'friend' для каждого друга
+* */
 function saveFriends() {
     var friendsList = new Object(),
         friendsFilter = new Object();
@@ -13,6 +15,7 @@ function saveFriends() {
     [].forEach.call(friendFilter.children, (friend) => {
         friendsFilter.items.push(createFriendObject(friend));
     })
+
     friendsList.count = friendsList.items.length;
     friendsFilter.count = friendsFilter.items.length;
     localStorage.setItem('friendList', JSON.stringify(friendsList));
