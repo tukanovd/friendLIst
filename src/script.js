@@ -49,33 +49,29 @@ var template = `
 var templateFn = Handlebars.compile(template);
 
 function checkLocalStorage() {
-    return new Promise((resolve, reject) => {
-        if (localStorage.getItem('friendList') || localStorage.getItem('friendFilter')) {
             friendList.innerHTML = templateFn(
                 JSON.parse(localStorage.getItem('friendList'))
             );
             friendFilter.innerHTML = templateFn(
                 JSON.parse(localStorage.getItem('friendFilter'))
             );
-
-            return reject;
-        }
-
-        return resolve;
-    })
 }
 
-new Promise(resolve => window.onload = resolve)
-    .then(() => checkLocalStorage())
-    .then(() => vkInit())
-    .then(() => vkApi('friends.get', { fields: 'photo_200' }))
-    .then((response) => {
-        response
-            .items
-            .forEach((obj, i) => {
-                obj.uid = i
-            });
-        friendList.innerHTML = templateFn(response)
-    })
-    .catch(e => alert('Ошибка: ' + e.message));
-
+window.onload = () => {
+    if (localStorage.getItem('friendList') || localStorage.getItem('friendFilter')) {
+        checkLocalStorage();
+    }
+    else {
+        vkInit()
+            .then(() => vkApi('friends.get', { fields: 'photo_200' }))
+            .then((response) => {
+                response
+                    .items
+                    .forEach((obj, i) => {
+                        obj.uid = i
+                    });
+                friendList.innerHTML = templateFn(response)
+            })
+            .catch(e => alert('Ошибка: ' + e.message));
+    }
+}
